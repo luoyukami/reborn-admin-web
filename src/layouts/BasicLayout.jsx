@@ -29,26 +29,20 @@ const noMatch = (
 /**
  * use Authorized check all menu item
  */
-const menuDataRender = menuList =>
-  menuList.map(item => {
+const menuDataRender = (menuList) =>
+  menuList.map((item) => {
     const localItem = { ...item, children: item.children ? menuDataRender(item.children) : [] };
     return Authorized.check(item.authority, localItem, null);
   });
 
 const defaultFooterDom = (
   <DefaultFooter
-    copyright="2019 蚂蚁金服体验技术部出品"
+    copyright="2020 by luoyu"
     links={[
-      {
-        key: 'Ant Design Pro',
-        title: 'Ant Design Pro',
-        href: 'https://pro.ant.design',
-        blankTarget: true,
-      },
       {
         key: 'github',
         title: <GithubOutlined />,
-        href: 'https://github.com/ant-design/ant-design-pro',
+        href: 'https://github.com/luoyukami',
         blankTarget: true,
       },
       {
@@ -61,7 +55,7 @@ const defaultFooterDom = (
   />
 );
 
-const BasicLayout = props => {
+const BasicLayout = (props) => {
   const {
     dispatch,
     children,
@@ -85,7 +79,7 @@ const BasicLayout = props => {
    * init variables
    */
 
-  const handleMenuCollapse = payload => {
+  const handleMenuCollapse = (payload) => {
     if (dispatch) {
       dispatch({
         type: 'global/changeLayoutCollapsed',
