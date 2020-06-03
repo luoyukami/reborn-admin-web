@@ -5,6 +5,7 @@ import React from 'react';
 import SelectLang from '@/components/SelectLang';
 import logo from '../assets/logo.svg';
 import styles from './UserLayout.less';
+import { GithubOutlined } from '@ant-design/icons';
 
 const UserLayout = (props) => {
   const {
@@ -27,6 +28,7 @@ const UserLayout = (props) => {
     breadcrumb,
     ...props,
   });
+
   return (
     <HelmetProvider>
       <Helmet>
@@ -50,7 +52,23 @@ const UserLayout = (props) => {
           </div>
           {children}
         </div>
-        <DefaultFooter />
+        <DefaultFooter
+          copyright="2020 by luoyu"
+          links={[
+            {
+              key: 'github',
+              title: <GithubOutlined />,
+              href: 'https://github.com/luoyukami',
+              blankTarget: true,
+            },
+            {
+              key: 'Ant Design',
+              title: 'Ant Design',
+              href: 'https://ant.design',
+              blankTarget: true,
+            },
+          ]}
+        />
       </div>
     </HelmetProvider>
   );
